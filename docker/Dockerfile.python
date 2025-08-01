@@ -1,0 +1,13 @@
+# AWS Lambda Python Executor
+FROM public.ecr.aws/lambda/python:3.9
+
+# Install system dependencies
+RUN yum update -y && \
+    yum install -y gcc && \
+    yum clean all
+
+# Copy Lambda function code
+COPY lambda-handlers/python-handler.py ${LAMBDA_TASK_ROOT}/
+
+# Set the CMD to your handler
+CMD [ "python-handler.lambda_handler" ]

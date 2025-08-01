@@ -1,0 +1,17 @@
+{
+  "name": "code-compiler-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda function for code execution",
+  "main": "index.js",
+  "scripts": {
+    "build": "zip -r deployment.zip .",
+    "deploy": "aws lambda update-function-code --function-name code-compiler --zip-file fileb://deployment.zip"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "uuid": "^9.0.0"
+  },
+  "keywords": ["aws-lambda", "code-compiler", "docker"],
+  "author": "Code Compiler Team",
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+# AWS Lambda Node.js Executor
+FROM public.ecr.aws/lambda/nodejs:18
+
+# Copy Lambda function code
+COPY lambda-handlers/nodejs-handler.js ${LAMBDA_TASK_ROOT}/
+
+# Set the CMD to your handler
+CMD [ "nodejs-handler.lambdaHandler" ]
